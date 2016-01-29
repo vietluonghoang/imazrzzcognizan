@@ -5,11 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-
 import javax.imageio.ImageIO;
-
 import org.opencv.core.Rect;
-
 import com.apache.pdfbox.ocr.tesseract.TessBaseAPI;
 
 public class OpticalCharacterRecognition {

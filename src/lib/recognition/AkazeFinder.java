@@ -329,8 +329,7 @@ public class AkazeFinder {
             InputStream stdin = proc.getInputStream();
             InputStreamReader isr = new InputStreamReader(stdin);
             BufferedReader br = new BufferedReader(isr);
-            String line = null;
-            while ((line = br.readLine()) != null) {
+            while ((br.readLine()) != null) {
                 System.out.print(".");
             }
             int exitVal = proc.waitFor();
@@ -398,7 +397,7 @@ public class AkazeFinder {
     }
 
     public void rotateImage90n(Mat source, Mat dest, int angle) {
-		// angle : factor of 90, even it is not factor of 90, the angle will be
+        // angle : factor of 90, even it is not factor of 90, the angle will be
         // mapped to the range of [-360, 360].
         // {angle = 90n; n = {-4, -3, -2, -1, 0, 1, 2, 3, 4} }
         // if angle bigger than 360 or smaller than -360, the angle will be

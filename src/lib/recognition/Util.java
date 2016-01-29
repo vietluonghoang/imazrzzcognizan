@@ -10,7 +10,6 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeoutException;
-
 import org.apache.commons.io.FileUtils;
 import org.opencv.core.Point;
 import org.openqa.selenium.JavascriptExecutor;
