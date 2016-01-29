@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,6 +29,11 @@ public class PerformanceMonitor {
         String file_path = System.getProperty("user.dir") + "/report/" + "monitor_profile_" + current_date
                 + ".csv";
         String[] FILE_HEADER = {"case_name", "cpuinfo(%)", "cpuinfo-detail", "meminfo(kB)", "meminfo-detail"};
+
+        Path releaseFolder = Paths.get("report");
+        if (!Files.exists(releaseFolder)) {
+            new File("report").mkdir();
+        }
 
         File file = new File(file_path);
         file.createNewFile();
@@ -190,7 +198,6 @@ public class PerformanceMonitor {
         hash.put("connectivity", false);
         hash.put("content", false);
         hash.put("cpuinfo", true);
-
         hash.put("dbinfo", false);
         hash.put("device_policy", false);
         hash.put("devicestoragemonitor", false);
@@ -205,7 +212,6 @@ public class PerformanceMonitor {
         hash.put("media.audio_policy", false);
         hash.put("media.camera", false);
         hash.put("meminfo", true);
-
         hash.put("mount", false);
         hash.put("netpolicy", false);
         hash.put("netstats", false);

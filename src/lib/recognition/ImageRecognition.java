@@ -175,7 +175,7 @@ public class ImageRecognition {
 
     public Point[] findImageOnScreenAndSetRotation(String image) throws Exception {
 
-        // used to initially determine if the screenshots need to be rotated and
+		// used to initially determine if the screenshots need to be rotated and
         // by what degree
         int retries = 5;
         Point[] imgRect = null;
@@ -184,7 +184,12 @@ public class ImageRecognition {
                 log("Find image failed, retries left: " + retries);
             }
             takeScreenshot(image + "_screenshot");
-            imgRect = findImage(image, image + "_screenshot", "notSet");
+            imgRect = findImage(image, image + "_screenshot", "notSet"); // this
+            // will
+            // identify
+            // the
+            // rotation
+            // initially
             retries = retries - 1;
         }
         assertNotNull(imgRect);
@@ -217,7 +222,7 @@ public class ImageRecognition {
     public void tapImageOnScreen(String image) throws Exception {
         Point[] imgRect = findImageOnScreen(image, 4);
 
-        // imgRect[4] will have the center of the rectangle containing the image
+		// imgRect[4] will have the center of the rectangle containing the image
         if (automationName.equals("Selendroid")) {
             selendroidTapAtCoordinate((int) imgRect[4].x, (int) imgRect[4].y, 1);
         } else {
@@ -367,7 +372,7 @@ public class ImageRecognition {
         Point top_right = imgRect[1];
         Point bottom_left = imgRect[2];
 
-        // adding the offset to each coordinate; if offset = 0.5, middle will be
+		// adding the offset to each coordinate; if offset = 0.5, middle will be
         // returned
         double newX = top_left.x + (top_right.x - top_left.x) * x_offset;
         double newY = top_left.y + (bottom_left.y - top_left.y) * y_offset;
